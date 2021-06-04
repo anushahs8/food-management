@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+body {margin:0;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+  <title>contact</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+<div style="padding:20px;margin-top:30px;height:1500px;">
+   <div class="container">
+  <h2>contact Table</h2>
+  <p>the table for first names, last names or emails:</p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr>
+        <td>impu</td>
+        <td>vijay</td>
+        <td>impu@example.com</td>
+      </tr>
+      <tr>
+        <td>ishu</td>
+        <td>vijay</td>
+        <td>ishu@mail.com</td>
+      </tr>
+      <tr>
+        <td>latha</td>
+        <td>shwetha</td>
+        <td>latha@greatstuff.com</td>
+      </tr>
+      <tr>
+        <td>divya</td>
+        <td>raju</td>
+        <td>divya@test.com</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</body>
+</html>
